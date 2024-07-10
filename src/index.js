@@ -3,7 +3,6 @@ import cors from 'cors';
 import logger from 'morgan';
 import { config } from 'dotenv';
 import apiRouter from './apis/index.js';
-import morgan from 'morgan';
 
 config();
 
@@ -20,6 +19,6 @@ app.get("/",(req,res)=>{
 
 app.use("/api",apiRouter);
 
-app.listen(()=>{
+app.listen(port,()=>{
     console.log(`Server is fire at port: ${port}`)
 })
