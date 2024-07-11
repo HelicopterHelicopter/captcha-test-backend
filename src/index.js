@@ -13,7 +13,14 @@ const port = process.env.PORT || 5000;
 app.use(session({
     secret:"abcdefg",
     saveUninitialized:false,
-    resave:false
+    resave:false,
+    cookie:{
+        path:"/",
+        signed:true,
+        sameSite:"none",
+        secure:true,
+        httpOnly:true
+    }
 }))
 
 
