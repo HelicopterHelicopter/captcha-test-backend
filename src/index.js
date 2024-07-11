@@ -10,6 +10,7 @@ config();
 const app = express();
 const port = process.env.PORT || 5000;
 
+app.enable('trust-proxy');
 
 app.use(cors({origin:'https://captcha-test-3b172.web.app',credentials:true}));
 
@@ -19,10 +20,10 @@ app.use(session({
     resave:false,
     cookie:{
         path:"/",
-        signed:true,
         sameSite:"none",
         secure:true,
-        httpOnly:true
+        httpOnly:true,
+        
     }
 }))
 
