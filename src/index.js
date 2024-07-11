@@ -17,12 +17,14 @@ app.use(session({
     cookie:{
         maxAge:12000,
         httpOnly:true,
-        path:"/"
+        path:"/",
+        sameSite:'none',
+        secure:true
     }
 }))
 
 
-app.use(cors({origin:'http://localhost:5174',credentials:true}));
+app.use(cors({origin:['http://localhost:5174','https://captcha-test-3b172.firebaseapp.com','https://captcha-test-3b172.web.app'],credentials:true}));
 app.use(express.json());
 app.use(logger('dev'));
 
