@@ -10,6 +10,9 @@ config();
 const app = express();
 const port = process.env.PORT || 5000;
 
+
+app.use(cors({origin:'https://captcha-test-3b172.web.app',credentials:true}));
+
 app.use(session({
     secret:"abcdefg",
     saveUninitialized:false,
@@ -24,7 +27,6 @@ app.use(session({
 }))
 
 
-app.use(cors({origin:['http://localhost:5174','https://captcha-test-3b172.firebaseapp.com','https://captcha-test-3b172.web.app','https://captcha.jheel.org'],credentials:true}));
 app.use(express.json());
 app.use(logger('dev'));
 
