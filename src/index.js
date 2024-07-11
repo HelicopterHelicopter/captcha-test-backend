@@ -16,7 +16,8 @@ app.use(session({
     resave:false,
     cookie:{
         maxAge:12000,
-        httpOnly:true
+        httpOnly:true,
+        path:"/"
     }
 }))
 

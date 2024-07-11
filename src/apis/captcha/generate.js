@@ -11,7 +11,6 @@ const generate = async (req,res) => {
         });
     
         console.log(captchaImage);
-        req.session.name = "test";
         req.session.captcha = captchaImage.text;
 
         console.log(req.session);
