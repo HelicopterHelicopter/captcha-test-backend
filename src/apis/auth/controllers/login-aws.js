@@ -8,7 +8,9 @@ const loginAWS = async (req,res) => {
 
         //db transaction
         //otp generation
-
+        res.set({
+            "Access-Control-Allow-Origin":req.headers.origin
+        })
         return res.status(200).json(create_api_response(true));
 
     }catch(err){
