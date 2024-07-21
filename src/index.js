@@ -21,7 +21,8 @@ app.use(session({
         sameSite: "none",
         secure: true,
         httpOnly: true,
-        domain: ".captcha-test-3b172.web.app"
+        domain: ".captcha-test-3b172.web.app",
+        maxAge: 2000
     }
 }))
 
