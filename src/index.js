@@ -4,7 +4,7 @@ import logger from 'morgan';
 import { config } from 'dotenv';
 import apiRouter from './apis/index.js';
 import session from 'express-session';
-import { MongoDBStore } from 'connect-mongodb-session';
+import MongoDBStore from 'connect-mongodb-session';
 const mongoStore = MongoDBStore(session);
 
 config();
@@ -30,7 +30,6 @@ app.use(session({
         sameSite: "none",
         secure: true,
         httpOnly: true,
-        domain: ".captcha-test-3b172.web.app",
         maxAge: 1000
     }
 }))
