@@ -4,6 +4,8 @@ import logger from 'morgan';
 import { config } from 'dotenv';
 import apiRouter from './apis/index.js';
 import session from 'express-session';
+import { MongoDBStore } from 'connect-mongodb-session';
+const mongoStore = MongoDBStore(session);
 
 config();
 
@@ -12,17 +14,24 @@ const port = process.env.PORT || 5000;
 
 app.use(cors({ origin: ['https://captcha-test-3b172.web.app', 'http://localhost:5173', 'http://localhost:5174', 'https://captcha.jheel.org'], credentials: true }));
 
+const store = new mongoStore({
+    collection: "captcha-test",
+    uri: process.env.MONGO_URI,
+    expires: 1000
+});
+
 app.use(session({
     secret: process.env.SESSION_COOKIE_SECRET,
     saveUninitialized: false,
     resave: false,
+    store: store,
     cookie: {
         path: "/",
         sameSite: "none",
         secure: true,
         httpOnly: true,
         domain: ".captcha-test-3b172.web.app",
-        maxAge: 2000
+        maxAge: 1000
     }
 }))
 
