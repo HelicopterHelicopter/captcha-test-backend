@@ -17,7 +17,7 @@ app.use(cors({ origin: ['https://captcha-test-3b172.web.app', 'http://localhost:
 const store = new mongoStore({
     collection: "captcha-test",
     uri: process.env.MONGO_URI,
-    expires: 1000
+    expires: 10000
 });
 
 app.use(session({
@@ -30,7 +30,7 @@ app.use(session({
         sameSite: "none",
         secure: true,
         httpOnly: true,
-        maxAge: 1000
+        maxAge: 10000
     }
 }))
 
