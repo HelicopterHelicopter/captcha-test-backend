@@ -5,11 +5,12 @@ import loginAWS from "./controllers/login-aws.js";
 
 const authRouter = Router();
 
-authRouter.post("/login",login);
-authRouter.post("/login-custom",loginCustom);
-authRouter.post('/login-aws',loginAWS);
-authRouter.get('/login-aws',(req,res)=>{
-    return res.status(200).json({message:"testing"});
+authRouter.post("/login", login);
+authRouter.post("/login-custom", loginCustom);
+authRouter.post('/login-aws', loginAWS);
+authRouter.post('/login-challenge', loginAWS);
+authRouter.get('/login-aws', (req, res) => {
+    return res.status(200).json({ message: "testing" });
 });
 
 export default authRouter;
