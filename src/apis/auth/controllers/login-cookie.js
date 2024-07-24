@@ -21,6 +21,14 @@ const loginCookie = async (req, res) => {
             return res.status(401).json(create_api_response(false, "Invalid captcha"));
         }
 
+        res.clearCookie(COOKIE_NAME, {
+            httpOnly: true,
+            signed: true,
+            path: "/",
+            secure: true,
+            sameSite: 'none'
+        });
+
         return res.status(200).json(create_api_response(true));
 
     } catch (err) {

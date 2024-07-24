@@ -32,6 +32,7 @@ class SessionManager {
         } else {
             const sessionData = this.sessionStorage.get(sessionId);
             if (sessionData.captchaText === captchaText && sessionData.expiryTime > Date.now()) {
+                this.deleteSession(sessionId);
                 return true;
             } else {
                 this.deleteSession(sessionId);
