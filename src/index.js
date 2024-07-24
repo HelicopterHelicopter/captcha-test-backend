@@ -7,6 +7,7 @@ import session from 'express-session';
 import MongoDBStore from 'connect-mongodb-session';
 const mongoStore = MongoDBStore(session);
 import cookieParser from 'cookie-parser';
+import SessionManager from './common_services/CaptchaSessionManager/sessionManager.js';
 
 config();
 
@@ -42,6 +43,7 @@ app.use(logger('dev'));
 
 app.use(cookieParser(process.env.COOKIE_SECRET));
 
+const sessionManager = SessionManager.getInstance();
 
 app.get("/", (req, res) => {
     res.status(200).json({ message: "working" });

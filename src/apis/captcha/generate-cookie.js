@@ -8,7 +8,7 @@ const generateCookie = async (req, res) => {
     try {
         const sessionId = req.signedCookies[`${COOKIE_NAME}`];
 
-        const sessionManager = SessionManager.getInstance(10000);
+        const sessionManager = SessionManager.getInstance();
 
         if (sessionId) {
             sessionManager.deleteSession(sessionId);
