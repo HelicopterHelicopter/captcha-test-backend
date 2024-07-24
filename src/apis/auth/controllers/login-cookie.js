@@ -9,6 +9,8 @@ const loginCookie = async (req, res) => {
         console.log(username, password, captcha);
 
         const sessionId = req.signedCookies[`${COOKIE_NAME}`];
+
+        console.log(sessionId);
         if (!sessionId || sessionId.trim() === "") {
             return res.status(401).json(create_api_response(false, "SessionId not received"));
         }

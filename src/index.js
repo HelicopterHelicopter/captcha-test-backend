@@ -43,7 +43,7 @@ app.use(logger('dev'));
 
 app.use(cookieParser(process.env.COOKIE_SECRET));
 
-const sessionManager = SessionManager.getInstance();
+const sessionManager = SessionManager.getInstance(10000);
 
 app.get("/", (req, res) => {
     res.status(200).json({ message: "working" });
