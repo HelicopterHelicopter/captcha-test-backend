@@ -19,7 +19,7 @@ class SessionManager {
         return SessionManager.instance;
     }
 
-    addNewSession(captchaText) {
+    createSession(captchaText) {
         const sessionId = crypto.randomUUID();
         this.sessionStorage.set(sessionId, { captchaText, expiryTime: Date.now() + this.sessionExpiryTime });
         return sessionId;
