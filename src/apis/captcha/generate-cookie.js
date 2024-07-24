@@ -1,6 +1,7 @@
 import svgCaptcha from 'svg-captcha';
 import create_api_response from '../../common_services/api_response/create_api_response.js';
 import { COOKIE_NAME } from '../../utils/constants.js';
+import SessionManager from '../../common_services/CaptchaSessionManager/sessionManager.js';
 
 const generateCookie = async (req, res) => {
 

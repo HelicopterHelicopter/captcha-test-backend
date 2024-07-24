@@ -43,3 +43,5 @@ class SessionManager {
         this.sessionStorage.delete(sessionId);
     }
 }
+
+export default SessionManager;
