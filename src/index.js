@@ -6,6 +6,7 @@ import apiRouter from './apis/index.js';
 import session from 'express-session';
 import MongoDBStore from 'connect-mongodb-session';
 const mongoStore = MongoDBStore(session);
+import cookieParser from 'cookie-parser';
 
 config();
 
@@ -38,6 +39,8 @@ app.use(session({
 
 app.use(express.json());
 app.use(logger('dev'));
+
+app.use(cookieParser(process.env.COOKIE_SECRET));
 
 
 app.get("/", (req, res) => {
