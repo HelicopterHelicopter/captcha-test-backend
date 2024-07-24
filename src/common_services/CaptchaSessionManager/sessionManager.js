@@ -21,8 +21,9 @@ class SessionManager {
 
     createSession(captchaText) {
         const sessionId = crypto.randomUUID();
-        this.sessionStorage.set(sessionId, { captchaText, expiryTime: Date.now() + this.sessionExpiryTime });
-        return sessionId;
+        const sessionData = { captchaText, expiryTime: Date.now() + this.sessionExpiryTime }
+        this.sessionStorage.set(sessionId, sessionData);
+        return { sessionId, sessionData };
     }
 
     verifyCaptcha(sessionId, captchaText) {

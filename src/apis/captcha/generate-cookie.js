@@ -26,10 +26,9 @@ const generateCookie = async (req, res) => {
             noise: 2,
             background: '#cc9966'
         });
-
-        res.cookie(COOKIE_NAME, sessionManager.createSession(captchaImage.text), {
+        const session = sessionManager.createSession(captchaImage.text);
+        res.cookie(COOKIE_NAME, session.sessionId, {
             path: "/",
-            expires,
             httpOnly: true,
             signed: true,
             secure: true,
