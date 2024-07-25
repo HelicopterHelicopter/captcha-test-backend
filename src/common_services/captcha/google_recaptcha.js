@@ -6,7 +6,6 @@ const validateRecaptchaToken = async (token, secretKey) => {
         const verificationUrl = `https://www.google.com/recaptcha/api/siteverify?secret=${secretKey}&response=${token}`;
 
         const response = await axios.post(verificationUrl);
-        console.log(response);
         const data = await response.data;
         console.log(data);
         return data.success;
