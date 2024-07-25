@@ -12,6 +12,9 @@ const login = async (req,res) => {
             return res.status(401).json(create_api_response(false,"Invalid captcha token"));
         }
 
+        //db transaction
+        //otp generation
+
         return res.status(200).json(create_api_response(true));
 
     }catch(err){
