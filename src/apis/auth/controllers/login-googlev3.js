@@ -8,7 +8,7 @@ const loginGoogleV3 = async (req, res) => {
         const { username, password, captchaToken } = req.body;
         console.log(username, password, captchaToken);
 
-        if (!await validateRecaptchaToken(captchaToken)) {
+        if (!await validateRecaptchaToken(captchaToken, process.env.RECAPTCHA_V3_SECRET_KEY)) {
             return res.status(401).json(create_api_response(false, "Invalid captcha token"));
         }
 

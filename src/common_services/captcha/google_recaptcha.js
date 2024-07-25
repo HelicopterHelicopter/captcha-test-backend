@@ -1,9 +1,9 @@
 import axios from "axios";
 
-const validateRecaptchaToken = async (token) => {
+const validateRecaptchaToken = async (token, secretKey) => {
 
     try {
-        const verificationUrl = `https://www.google.com/recaptcha/api/siteverify?secret=${process.env.RECAPTCHA_SECRET_KEY}&response=${token}`;
+        const verificationUrl = `https://www.google.com/recaptcha/api/siteverify?secret=${secretKey}&response=${token}`;
 
         const response = await axios.post(verificationUrl);
         console.log(response);
